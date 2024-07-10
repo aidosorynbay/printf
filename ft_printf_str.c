@@ -1,29 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_printf_str.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aorynbay <@student.42abudhabi.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/10 08:08:03 by aorynbay          #+#    #+#             */
-/*   Updated: 2024/07/10 15:12:44 by aorynbay         ###   ########.fr       */
+/*   Created: 2024/07/10 13:31:19 by aorynbay          #+#    #+#             */
+/*   Updated: 2024/07/10 15:22:30 by aorynbay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include <stdarg.h>
-# include <stdio.h>
-# include <unistd.h>
+int	ft_printf_str(va_list *args)
+{
+	char	*str;
+	int		i;
 
-int	ft_printf_char(va_list *args);
-int	ft_printf_decimal(va_list *args);
-int	ft_printf_hexa(va_list *args, char c);
-int	ft_printf_percent(char c);
-int	ft_printf_ptr(va_list *args);
-int	ft_printf_str(va_list *args);
-int	ft_printf_unsigned(va_list *args);
-int	ft_printf(const char *str, ...);
-
-#endif
+	i = 0;
+	str = va_arg(*args, char *);
+	if (str == NULL)
+	{
+		write(1, "(null)", 6);
+		return (6);
+	}
+	else
+	{
+		while (str[i] != '\0')
+		{
+			write(1, &str[i], 1);
+			i++;
+		}
+	}
+	return (i);
+}
