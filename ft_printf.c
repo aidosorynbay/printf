@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.c                                           :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aorynbay <@student.42abudhabi.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 08:07:59 by aorynbay          #+#    #+#             */
-/*   Updated: 2024/07/10 10:41:56 by aorynbay         ###   ########.fr       */
+/*   Updated: 2024/07/10 11:15:43 by aorynbay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 int	handle_char(va_list *args)
 {
@@ -152,10 +152,10 @@ int	ft_printf(const char *str, ...)
 	return count;
 }
 
-int	main(void)
-{
-	int a = printf("char: %c, string: %s, percent: %%, num_d: %d, num_u: %u\n", 't', "hello", 42, -1);
-	int b = ft_printf("char: %c, string: %s, percent: %%, num_d: %d, num_u: %u\n", 't', "hello", 42, -1);
-	printf("%d\n", a);
-	printf("%d\n", b);
-}
+// int	main(void)
+// {
+// 	int a = printf("char: %c, string: %s, percent: %%, num_d: %d, num_u: %u\n", 't', "hello", 42, -1);
+// 	int b = ft_printf("char: %c, string: %s, percent: %%, num_d: %d, num_u: %u\n", 't', "hello", 42, -1);
+// 	printf("%d\n", a);
+// 	printf("%d\n", b);
+// }

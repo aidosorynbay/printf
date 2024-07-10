@@ -6,11 +6,11 @@
 #    By: aorynbay <@student.42abudhabi.ae>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/10 08:08:06 by aorynbay          #+#    #+#              #
-#    Updated: 2024/07/10 10:52:20 by aorynbay         ###   ########.fr        #
+#    Updated: 2024/07/10 11:15:02 by aorynbay         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	=	printf.c
+SRCS	=	ft_printf.c
 
 OBJS	=	${SRCS:.c=.o}
 
