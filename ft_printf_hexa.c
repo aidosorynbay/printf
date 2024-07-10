@@ -6,7 +6,7 @@
 /*   By: aorynbay <@student.42abudhabi.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 13:35:46 by aorynbay          #+#    #+#             */
-/*   Updated: 2024/07/10 15:21:43 by aorynbay         ###   ########.fr       */
+/*   Updated: 2024/07/10 16:10:41 by aorynbay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,19 @@ int	ft_puthexa(unsigned int n, char c)
 	int		i;
 	char	buffer[9];
 	int		count;
+	int		write_count;
 
+	i = 0;
+	count = 0;
 	if (c == 'x')
 		hex = "0123456789abcdef";
 	else if (c == 'X')
 		hex = "0123456789ABCDEF";
-	i = 0;
-	count = 0;
 	if (n == 0)
 	{
-		write(1, &hex[n], 1);
+		write_count = write(1, &hex[n], 1);
+		if (write_count == -1)
+			return (-1);
 		return (1);
 	}
 	while (n > 0)
@@ -37,7 +40,11 @@ int	ft_puthexa(unsigned int n, char c)
 	}
 	count = i;
 	while (i > 0)
-		write(1, &buffer[--i], 1);
+	{
+		write_count = write(1, &buffer[--i], 1);
+		if (write_count == -1)
+			return (-1);
+	}
 	return (count);
 }
 

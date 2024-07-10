@@ -6,7 +6,7 @@
 /*   By: aorynbay <@student.42abudhabi.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 13:30:23 by aorynbay          #+#    #+#             */
-/*   Updated: 2024/07/10 15:20:57 by aorynbay         ###   ########.fr       */
+/*   Updated: 2024/07/10 16:13:30 by aorynbay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,11 @@
 int	ft_printf_char(va_list *args)
 {
 	char	c;
+	int		write_count;
 
 	c = va_arg(*args, int);
-	write(1, &c, 1);
+	write_count = write(1, &c, 1);
+	if (write_count == -1)
+		return (-1);
 	return (1);
 }
