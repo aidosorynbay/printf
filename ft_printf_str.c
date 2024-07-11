@@ -6,20 +6,20 @@
 /*   By: aorynbay <@student.42abudhabi.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 13:31:19 by aorynbay          #+#    #+#             */
-/*   Updated: 2024/07/10 15:54:02 by aorynbay         ###   ########.fr       */
+/*   Updated: 2024/07/11 07:59:47 by aorynbay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf_str(va_list *args)
+int	ft_printf_str(va_list args)
 {
 	char	*str;
 	int		i;
 	int		write_count;
 
 	i = 0;
-	str = va_arg(*args, char *);
+	str = va_arg(args, char *);
 	if (str == NULL)
 	{
 		write_count = write(1, "(null)", 6);

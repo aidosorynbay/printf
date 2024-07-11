@@ -6,13 +6,13 @@
 /*   By: aorynbay <@student.42abudhabi.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 08:07:59 by aorynbay          #+#    #+#             */
-/*   Updated: 2024/07/10 16:40:37 by aorynbay         ###   ########.fr       */
+/*   Updated: 2024/07/11 08:39:55 by aorynbay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	check_condition(char c, va_list *args)
+static int	check_condition(char c, va_list args)
 {
 	if (c == 'c')
 		return (ft_printf_char(args));
@@ -46,7 +46,7 @@ int	ft_printf(const char *str, ...)
 		if (str[i] != '%')
 			write_count = write(1, &str[i], 1);
 		else
-			write_count = check_condition(str[++i], &args);
+			write_count = check_condition(str[++i], args);
 		if (write_count == -1)
 		{
 			va_end(args);
@@ -61,9 +61,13 @@ int	ft_printf(const char *str, ...)
 
 // int	main(void)
 // {
-// 	// unsigned long long d = 1844674407370955165;
-// 	// int a = printf("char: %c, string: %s, percent: %%, num_d: %d, num_u: %u, num_i: %i, hexa_l: %x, hexa_u: %X, ptr: %p\n", 't', NULL, 42, -1, 0x2b, 0x7fedcba1, -1, &d);
-// 	// int b = ft_printf("char: %c, string: %s, percent: %%, num_d: %d, num_u: %u, num_i: %i, hexa_l: %x, hexa_u: %X, ptr: %p\n",'t', NULL, 42, -1, 0x2b, 0x7fedcba1, -1, &d);
-// 	printf("%d\n", printf("%%"));
-// 	// printf("%d\n", b);
+// 	unsigned long long d = 1844674407370955165;
+// 	int a = printf("char: %c, string: %s, percent: %%, num_d: %d,
+// 	num_u: %u, num_i: %i, hexa_l: %x, hexa_u: %X, ptr: %p\n", 't',
+// 	NULL, 42, -1, 0x2b, 0x7fedcba1, -1, &d);
+// 	int b = ft_printf("char: %c, string: %s, percent: %%, num_d: %d,
+// 	num_u: %u, num_i: %i, hexa_l: %x, hexa_u: %X, ptr: %p\n",'t',
+// 	NULL, 42, -1, 0x2b, 0x7fedcba1, -1, &d);
+// 	printf("%d\n", a);
+// 	printf("%d\n", b);
 // }

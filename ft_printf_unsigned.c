@@ -6,13 +6,13 @@
 /*   By: aorynbay <@student.42abudhabi.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 13:33:46 by aorynbay          #+#    #+#             */
-/*   Updated: 2024/07/10 16:34:19 by aorynbay         ###   ########.fr       */
+/*   Updated: 2024/07/11 08:39:31 by aorynbay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putnbr_u(unsigned int n)
+static int	ft_putnbr_u(unsigned int n)
 {
 	char	c;
 	int		count;
@@ -31,12 +31,12 @@ int	ft_putnbr_u(unsigned int n)
 	return (count + write_count);
 }
 
-int	ft_printf_unsigned(va_list *args)
+int	ft_printf_unsigned(va_list args)
 {
 	unsigned int	n;
 	int				count;
 
-	n = va_arg(*args, unsigned int);
+	n = va_arg(args, unsigned int);
 	count = ft_putnbr_u(n);
 	return (count);
 }
